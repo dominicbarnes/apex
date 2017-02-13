@@ -28,7 +28,7 @@ type Proxy struct {
 // Run terraform command in infrastructure directory.
 func (p *Proxy) Run(args ...string) error {
 	if p.shouldInjectVars(args) {
-		args = append(args, p.functionVars()...)
+		args = append(p.functionVars(), args...)
 	}
 
 	log.WithFields(log.Fields{
